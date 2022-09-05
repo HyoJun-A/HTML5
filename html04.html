@@ -9,7 +9,36 @@
 </head>
 <body>
     이미지 5개 이상 - jpg, png, gif, webp, svg
+    <!-- div.wrap>ul>li*5>img -->
+    <!-- alt : 이미지가 보이지 않을 경우에 나오는 텍스트 -->
+    <!-- title : 이미지에 마우스 커서를 올리면 이미지에 대한 설명을 확인할 수 있다, 웹 접근성이 높아진다. -->
+    <!-- 이미지의 형식이 "svg"형식 이라면 확대를 해도 이미지가 깨지지 않는다. -->
+    <div class="wrap">
+        <ul>
+            <li><img src="./img/code.jpg" alt="코드" title="코드"></li>
+            <li><img src="./img/home.jpg" alt="집" title="집"></li>
+            <li><img src="./img/main.jpg" alt="사람" title="사람"></li>
+            <li><img src="./img/metrics.jpg" alt="노트북" title="노트북"></li>
+            <li><img src="./img/technology.jpg" alt="전자기기" title="전자기기"></li>
+        </ul>
+    </div>
     동영상 3개 이상 - mp4, webm, ogv
+    <!-- div>ul>li*3>video -->
+    <!-- controls : 이 설정을 해야 실행 가능, autoplay : 비디오 자동 실행, muted를 해줘야 자동 실행(음소거설정) -->
+    <!-- poster : 썸네일 -->
+    <div>
+        <ul>
+            <li>
+                <video src="./data/IVE.mp4" poster="./img/code.jpg" controls muted></video>
+            </li>
+            <li>
+                <video src="./data/JENNIE.mp4"></video>
+            </li>
+            <li>
+                <video src="./data/NewJeans.mp4"></video>
+            </li>
+        </ul>
+    </div>
     사운드 3개 이상 -mp3, ogg, wav
 </body>
 </html>
