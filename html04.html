@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,9 @@
     <title> HTML연습 04 - 미디어 관련</title>
     <!-- MP3파일 clipdown -->
 </head>
+
 <body>
-    이미지 5개 이상 - jpg, png, gif, webp, svg
+    <h2>이미지 5개 이상 - jpg, png, gif, webp, svg</h2>
     <!-- div.wrap>ul>li*5>img -->
     <!-- alt : 이미지가 보이지 않을 경우에 나오는 텍스트 -->
     <!-- title : 이미지에 마우스 커서를 올리면 이미지에 대한 설명을 확인할 수 있다, 웹 접근성이 높아진다. -->
@@ -22,23 +24,142 @@
             <li><img src="./img/technology.jpg" alt="전자기기" title="전자기기"></li>
         </ul>
     </div>
-    동영상 3개 이상 - mp4, webm, ogv
+    <h2>동영상 3개 이상 - mp4, webm, ogv</h2>
     <!-- div>ul>li*3>video -->
-    <!-- controls : 이 설정을 해야 실행 가능, autoplay : 비디오 자동 실행, muted를 해줘야 자동 실행(음소거설정) -->
-    <!-- poster : 썸네일 -->
     <div>
         <ul>
             <li>
-                <video src="./data/IVE.mp4" poster="./img/code.jpg" controls muted></video>
+                <video src="./data/IVE.mp4" poster="./img/code.jpg" controls autoplay muted loop></video>
+                <div class="comment">
+                    <h3>video 요소의 태그 속성</h3>
+                    <p>src : 해당 비디오 파일의 경로(위치와 파일명)</p>
+                    <p>poster : 대기화면(썸네일) 이미지의 파일 경로</p>
+                    <p>controls : 비디오 재생 제어 패널 표시</p>
+                    <p>autoplay : 자동재생</p>
+                    <p>muted : 무음처리(자동 재생시 반드시 필요함)</p>
+                    <p>loop : 반복 재생</p>
+                    <p>width : 폭, height : 높이</p>
+                </div>
             </li>
             <li>
-                <video src="./data/JENNIE.mp4"></video>
+                <!-- 크로스브라우징 : 브라우저에서 사용이 불가능한 파일이 있을 수 있기 때문에 사용  -->
+                <video width="800" height="600" controls loop>
+                    <source src="./data/JENNIE.mp4" type="video/mp4">
+                    <source src="./data/JENNIE.webm" type="video/webm">
+                    <source src="./data/JENNIE.ogv" type="video/ogv">
+                </video>
+                <div class="comment">
+                    <h3>브라우저 마다 재생가능한 파일</h3>
+                    <p>mp4, webm, ogv 파일이 브라우저 마다 각기 재생 기능 제공됨</p>
+                    <!-- thead>tr>th, thead : 그룹, tr : 줄, th: 내용, 내용의 줄을 바꿀때에는 tr을 사용하여 줄바꿈을 한다.-->
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>브라우저</th>
+                                <th>MP4</th>
+                                <th>WebM</th>
+                                <th>Ogv</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Internet Explorer</td>
+                                <td>YES</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                            </tr>
+                            <tr>
+                                <td>Chrome</td>
+                                <td>YES</td>
+                                <td>YES</td>
+                                <td>YES</td>
+                            </tr>
+                            <tr>
+                                <td>Firefox</td>
+                                <td>YES</td>
+                                <td>YES</td>
+                                <td>YES</td>
+                            </tr>
+                            <tr>
+                                <td>Safari</td>
+                                <td>YES</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                            </tr>
+                            <tr>
+                                <td>Opera</td>
+                                <td>YES</td>
+                                <td>YES</td>
+                                <td>YES</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </li>
             <li>
                 <video src="./data/NewJeans.mp4"></video>
             </li>
+            <li>
+                <!-- iframe태그 안에 모든 내용을 적어서 사용할 수 있다. , width, height, src가 기본 속성이다. -->
+                <iframe width="503" height="283" src="https://www.youtube.com/embed/pJg8sr_qbd4"
+                    title="[오늘 이 뉴스] '마린시티' 또 당했다.. 알면서 왜 못 막나? (2022.09.06/MBC뉴스)" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </li>
         </ul>
     </div>
-    사운드 3개 이상 -mp3, ogg, wav
+    <h2>사운드 3개 이상 -mp3, wav, ogg</h2>
+    <div class="wrap">
+        <ul>
+            <li>
+                <audio src="./data/IVE.mp3" controls>
+                    <div class="comment">
+                        <h3>audio 요소의 태그 속성</h3>
+                        <p>src : 해당 비디오 파일의 경로(위치와 파일명)</p>
+                        <p>controls : 비디오 재생 제어 패널 표시</p>
+                        <p>autoplay : 자동재생</p>
+                        <p>muted : 무음처리(자동 재생시 반드시 필요함)</p>
+                        <p>loop : 반복 재생</p>
+                    </div>
+                </audio>
+            </li>
+            <li>
+                <audio controls>
+                    <source src="./data/JENNIE.mp3" type="audio/mp3">
+                    <source src="./data/JENNIE.wav" type="audio/wav">
+                    <source src="./data/JENNIE.ogg" type="audio/ogg">
+                </audio>
+            </li>
+            <li>
+                <audio controls>
+                    <source src="./data/NewJeans.mp3" type="audio/mp3">
+                </audio>
+            </li>
+        </ul>
+        <div class="comment">
+            <p class="imp" style="font-size:20px; color:red">
+                ※audio/video의 내장 관련 태그로 embed나 object를 활용했었으나 html5 웹 표준에서는 플래시와 같은 플러그인의 사용 금지로 잘 사용하지 않음
+            </p>
+            <embed src="./data/JENNIE.mp3" type="audio/mp3">
+            <object data="./data/JENNIE.mp4" type="video/mp4" width="400" height="300">
+                현재 사용 중인 브라우저는 object 요소를 지원하지 않습니다!
+            </object>
+            <h3>embed/object의 태그 속성</h3>
+            <p>src : 해당 비디오 파일의 경로(위치와 파일명)</p>
+            <p>poster : 대기화면(썸네일) 이미지의 파일 경로</p>
+            <p>controls : 비디오 재생 제어 패널 표시</p>
+            <p>autoplay : 자동재생</p>
+            <p>muted : 무음처리(자동 재생시 반드시 필요함)</p>
+            <p>loop : 반복 재생</p>
+            <p>volume : 볼륨(소리)의 크기 지정</p>
+            <p>showcontrols : 미디어 재생 제어 패널</p>
+            <p>type : 해당 video나 audio와 같은 미디어의 타입을 선언</p>
+        </div>
+    </div>
+    <!-- 인라인태그방식 : 같은 크기일때 다음줄이 아닌 같은 줄에 사용 -->
+    <!-- img, video, audio는 크기 지정이 가능한 인라인태그방식 -->
+    <video src="./data/JENNIE.mp4" width="400" height="300"></video>
+    <video src="./data/IVE.mp4" width="400" height="300"></video>
 </body>
+
 </html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html 연습06 - 폼1</title>
+</head>
+<body>
+    <div class="wrap">
+        <!-- TODO 정리 -->
+        <!-- form 사용자와 서버 사이의 연결(상호작용) -->
+        <!-- action : 정보가 전송될 곳 지정 -->
+        <!-- a태그 : get 방식 -->
+        <!-- 사용자 입력 : post방식 -->
+        <!-- get : 중간에 데이터를 확인할 수 있다, 공개방식, 대표적으로 게시판 -->
+        <!-- post : 데이터를 받는 사람만이 확인할 수 있다, 은폐방식, 대표적으로 회원 로그인 -->
+        <!-- required : 필수로 입력 -->
+        <!-- autofocus : 화면창에 들어가면 마우스가 바로 가는 것 -->
+        <!-- pattern ="[글자, 숫자, 특수문자 범위]{최소값, 최대값}" -->
+        <!-- fieldset : 요소 그룹화 -->
+        <!-- legend : 요소의 캡션을 정의 -->
+        <form action="join.jsp" method="post">
+            <!-- 관련 항목을 묶는 것 -->
+            <fieldset>
+                <legend>기본정보</legend>
+                <table>
+                    <tbody>
+                        <!-- TODO 아이디 -->
+                        <tr>
+                            <th>
+                                <!-- for속성에 input의 id를 사용하여 아이디를 클릭해도 input으로 사용됨 -->
+                                <label for="id">아이디</label>
+                            </th>
+                            <td>
+                                <!-- placeholder : 텍스트 칸안의 글자 -->
+                                <!-- pattern : 창 입력칸의 사용가능한 글자 및 글자 수 지정 -->
+                                <!-- required : 필수로 입력 -->
+                                <!-- autofocus : 화면창에 처음 들어가서 마우스의 위치, 화면에 들어가면 아이디를 적는 칸으로 선택이 된다. -->
+                                <input type="text" name="id" id="id" title="아이디 입력", placeholder="아이디를 입력" pattern="[a-zA-Z0-9]{6,15}" required autofocus>
+                                <input type="button" value="아이디 중복 확인" id="idConfirm">
+                            </td>
+                        </tr>
+                        <!-- TODO 비밀번호 -->
+                        <tr>
+                            <th>
+                                <label for="pw">비밀번호</label>
+                            </th>
+                            <td>
+                                <!-- maxlength : 칸에 적을 수 있는 최대 글자 수 -->
+                                <!-- size : 칸의 크기 -->
+                                <!-- type="password"를 사용할경우 pw가 가려짐 -->
+                                <input type="password" name="pw" id="pw"  maxlength="14" placeholder="비밀번호 최대 14글자" size="70" required>
+                            </td>
+                        </tr>
+                        <!-- TODO 비밀번호 확인 -->
+                        <tr>
+                            <th>
+                                <label for="pw2">비밀번호 확인</label>
+                            </th>
+                            <td>
+                                <!-- type="password"를 사용할경우 pw가 가려짐 -->
+                                <input type="password" name="pw2" id="pw2" required>
+                            </td>
+                        </tr>
+                        <!-- TODO 이름 -->
+                        <tr>
+                            <th>
+                                <label for="name">이름</label>
+                            </th>
+                            <td>
+                               <input type="text" name="name" id="name" pattern="[가-힣a-zA-Z]{1, 20}" required> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="email">이메일</label>
+                            </th>
+                            <td>
+                                <input type="email" name="email" id="email" required>
+                            </td>
+                        </tr>
+                        <!-- TODO 연락처 -->
+                        <tr>
+                            <th>
+                                <label for="tel">연락처</label>
+                            </th>
+                            <td>
+                                <input type="tel" name="tel" id="tel" required>
+                            </td>
+                        </tr>
+                        <!-- radio는 무조건 하나는 선택, checkbox : 마음대로, 선택안해도 되고 모두 선택해도 된다. -->
+                        <!-- 체크속성은 radio, checkbox만 사용 가능 -->
+                        <!-- TODO 성별 -->
+                        <tr>
+                            <th>
+                                <label>성별</label>
+                            </th>
+                            <!-- checked : 시작과 동시에 선택되어져 있는 것 -->
+                            <!-- name은 같아야 하며, id는 다르게 작성해야 한다. -->
+                            <!-- &nbsp : 띄어쓰기 -->
+                            <td>
+                                <input type="radio" name="male" id="male1" checked>
+                                <label for="male1">여성</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="male" id="male2">
+                                <label for="male1">남성</label>
+                            </td>
+                        </tr>
+                        <!-- TODO 가입 목적 -->
+                        <tr>
+                            <th>
+                                <label>가입 목적</label>
+                            </th>
+                            <td>
+                                <input type="checkbox" name="obj" id="obj1" checked>
+                                <label for="male1">취업</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="obj" id="obj2">
+                                <label for="obj2">자료 다운로드</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="obj" id="obj3">
+                                <label for="obj3">자격취득</label>
+                            </td>
+                        </tr>
+                        <!-- TODO 지역 -->
+                        <tr>
+                            <th>지역</th>
+                            <td>
+                                <!-- select box에서 선택한 항목의 값은 value -->
+                                <!-- selected : select box에서 사용하면 그 값이 선택되어 있음 -->
+                                <select name="sel" id="sel">
+                                    <option value="">선택안함</option>
+                                    <option value="1" selected>수도권</option>
+                                    <option value="2">영남권</option>
+                                    <option value="3">호남권</option>
+                                    <option value="4">충천권</option>
+                                    <option value="5">기타</option>
+                                </select>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>추가정보</legend>
+                <table>
+                    <tbody>
+                        <!-- TODO 나이 -->
+                        <!-- min, max : 최소 최대 설정 -->
+                        <!-- step : 우측의 숫자 증가 감소 값 설정 -->
+                        <tr>
+                            <th>
+                                <label for="age">나이</label>
+                            </th>
+                            <td>
+                                <input type="number" name="age" id="age" max="200" min="0" step="2" required>
+                            </td>
+                        </tr>
+                        <!-- TODO 생년월일 -->
+                        <tr>
+                            <th>
+                                <label for="birth">생년월일</label>
+                            </th>
+                            <td>
+                                <input type="date" name="birth" id="birth" required>
+                            </td>
+                        </tr>
+                        <!-- TODO 좋아하는 색상 -->
+                        <tr>
+                            <th>
+                                <label for="color">좋아하는 색상</label>
+                            </th>
+                            <td>
+                                <input type="color" name="color" id="color">
+                            </td>
+                        </tr>
+                        <!-- TODO 하고 싶은 말 -->
+                        <tr>
+                            <th>하고 싶은 말</th>
+                            <td>
+                                <!-- cols : 열, rows : 행, cols = 70 rows = 10일 경우에 최대 700글자를 적을 수 있다.  -->
+                                <!-- 서버를 통하여 DB에 저장할경우 해당하는 최대 글자 수에 맞게 설정 -->
+                                <textarea name="memo" id="memo" cols="70" rows="10">
+                                </textarea>
+                            </td>
+                        </tr>
+                        <!-- TODO 파일첨부 -->
+                        <tr>
+                            <!-- accept="*.jpg | *.png" : 지정한 파일만 선택 가능 -->
+                            <!-- hidden : 숨겨져 있음, 값만 보관하기 위하여 사용, 화면상에서 보이지 않음 -->
+                            <!-- range : 사진의 크기를 변경할 수 있음 -->
+                            <th>파일 선택</th>
+                            <td>
+                                <input type="file" name="file" id="file" >
+                                <input type="range" name="pic_size" id="pic_size" max="" min="">
+                                <input type="hidden" id="idck" name="idck">
+                            </td>
+                        </tr>
+                        <!-- TODO 회원가입, 취소 -->
+                        <tr>
+                            <td>
+                                <input type="submit" value="회원가입">
+                            </td>
+                            <td>
+                                <input type="reset" value="취소">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
